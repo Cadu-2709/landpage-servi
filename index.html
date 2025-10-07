@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servi.UP - Transforme sua Gestão e Impressione Seus Clientes</title>
+    <link rel="icon" type="image/png" href="scr/img/UP.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00C853; /* Verde da logo */
+            --dark-color: #212529; /* Cinza escuro/preto da logo */
+            --light-color: #f8f9fa;
+            --white-color: #ffffff;
+            --text-color: #495057;
+            --danger-color: #dc3545;
+            --success-color: #d4edda;
+            --warning-color: #fff3cd;
+            --info-color: #d1ecf1;
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--white-color);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--dark-color);
+            color: var(--white-color);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        header .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        header .logo span {
+            color: var(--primary-color);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-top: 20px;
+            line-height: 1.2;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 20px auto;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--white-color);
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        header .btn-secondary {
+            border: 2px solid var(--white-color);
+        }
+
+
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .card {
+            background: var(--white-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+        
+        .card h3 {
+             color: var(--dark-color);
+             margin-bottom: 10px;
+        }
+        
+        .bg-light {
+            background-color: var(--light-color);
+        }
+
+        .how-it-works {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .how-it-works .step {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .how-it-works .step .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--white-color);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .how-it-works img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .feature-item .icon {
+             font-size: 2rem;
+             color: var(--primary-color);
+        }
+        
+        .feature-item h3 {
+             color: var(--dark-color);
+             margin-bottom: 5px;
+        }
+        
+        #cta {
+            background: var(--dark-color);
+            color: var(--white-color);
+            text-align: center;
+        }
+        
+        #cta h2 {
+            color: var(--white-color);
+        }
+        
+        .faq-item {
+            background: #fff;
+            margin-bottom: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        .faq-item h4 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        footer {
+            background: #111;
+            color: #ccc;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            .grid-3, .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .how-it-works {
+                flex-direction: column;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">Servi.<span>UP</span></div>
+            <h1>Transforme sua Gestão e Impressione Seus Clientes</h1>
+            <p>A plataforma que organiza seu negócio, cria orçamentos profissionais com a <strong>sua própria marca</strong> e ajuda você a fechar mais vendas. Chega de amadorismo, é hora de crescer.</p>
+            <div class="cta-buttons">
+                <a href="https://pay.kiwify.com.br/QJz02Oq" class="btn btn-primary">➡️ Quero Profissionalizar Meu Negócio</a>
+                <a href="https://wa.me/5554996333833?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20plataforma%20Servi.UP." class="btn btn-secondary">💬 Falar com um Representante</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="problema">
+        <div class="container">
+            <h2 class="section-title">Seu dia a dia parece assim?</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Perda de Tempo</h3>
+                    <p>Você gasta horas criando orçamentos em Word ou Excel que nem sempre ficam com aparência profissional.</p>
+                </div>
+                <div class="card">
+                    <h3>Falta de Controle</h3>
+                    <p>Anotações em papel, planilhas confusas e dificuldade para saber o que foi pago, agendado e qual foi seu lucro real.</p>
+                </div>
+                <div class="card">
+                    <h3>Aparência Amadora</h3>
+                    <p>Sua marca não se destaca e você sente que perde clientes para concorrentes mais organizados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solucao" class="bg-light">
+        <div class="container">
+             <h2 class="section-title">Apresentando a Servi.UP: Sua Gestão, Sua Marca.</h2>
+             <p class="section-subtitle">
+                Chega de complicação. A Servi.UP é a ferramenta definitiva para MEIs, instaladores e pequenas empresas que buscam controle, agilidade e profissionalismo. Centralize sua operação em um sistema simples, que funciona no computador e no celular <strong>(até mesmo offline!)</strong>, e que leva a <strong>sua logo e as suas cores</strong>, não a nossa.
+             </p>
+             <img src="scr/img/SUA MARCA.png" alt="Tela inicial da plataforma Servi.UP" style="width:100%; max-width:800px; display:block; margin:auto; border-radius:10px;">
+        </div>
+    </section>
+
+    <section id="como-funciona">
+        <div class="container">
+            <h2 class="section-title">Profissionalismo em questão de minutos</h2>
+            <div class="how-it-works">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Crie Orçamentos Detalhados</h3>
+                    <p>Em uma tela simples, adicione serviços, produtos e defina os valores.</p>
+                    <img src="scr/img/BTT orçamento (3).png" alt="Tela de criação de orçamento">
+                </div>
+                 <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Gere um PDF com a Sua Marca</h3>
+                    <p>Com um clique, a plataforma cria uma proposta profissional com sua logo.</p>
+                    <img src="scr/img/BTT orçamento (4).png" alt="PDF de orçamento profissional">
+                </div>
+                 <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Envie e Acompanhe</h3>
+                    <p>Mande o PDF para o WhatsApp do cliente e acompanhe o status de cada serviço.</p>
+                    <img src="scr/img/BTT orçamento (2).png" alt="Tela de acompanhamento de orçamentos">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="features" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Tudo o que você precisa para crescer</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="icon">📄</div>
+                    <div>
+                        <h3>Orçamentos que Vendem</h3>
+                        <p>Crie e envie propostas ilimitadas com aparência profissional que impressionam e fecham negócios.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">👥</div>
+                    <div>
+                        <h3>Gestão de Clientes (CRM)</h3>
+                        <p>Tenha um cadastro completo de seus clientes, com histórico de serviços e acesso rápido aos contatos.</p>
+                    </div>
+                </div>
+                 <div class="feature-item">
+                    <div class="icon">💸</div>
+                    <div>
+                        <h3>Controle de Despesas</h3>
+                        <p>Registre todos os seus custos (gasolina, materiais) e saiba exatamente para onde seu dinheiro está indo.</p>
+                    </div>
+                </div>
+                 <div class="feature-item">
+                    <div class="icon">📊</div>
+                    <div>
+                        <h3>Relatórios Inteligentes</h3>
+                        <p>Veja seu faturamento, despesas e lucro real com filtros por data. Tome decisões baseadas em dados.</p>
+                    </div>
+                </div>
+                 <div class="feature-item">
+                    <div class="icon">📱</div>
+                    <div>
+                        <h3>Acesso Offline</h3>
+                        <p>O app do celular funciona offline. Consulte informações ou crie orçamentos mesmo sem internet.</p>
+                    </div>
+                </div>
+                 <div class="feature-item">
+                    <div class="icon">🎨</div>
+                    <div>
+                        <h3>Plataforma White-Label</h3>
+                        <p>A ferramenta é sua! Use sua própria logo e esquema de cores para uma experiência totalmente personalizada.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tools">
+        <div class="container">
+            <h2 class="section-title">Ferramentas que aceleram seu trabalho</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Gerador de Cobrança PIX</h3>
+                    <p>Crie um QR Code do PIX com o valor exato do serviço e envie para seu cliente. Rápido e seguro.</p>
+                </div>
+                <div class="card">
+                    <h3>Marketing Simplificado</h3>
+                    <p>Tire uma foto do seu serviço, e a Servi.UP adiciona a sua logo automaticamente para você divulgar.</p>
+                </div>
+                <div class="card">
+                    <h3>Calculadora Rápida</h3>
+                    <p>Calcule porcentagens de desconto ou margens de lucro diretamente na plataforma, sem sair da tela.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta">
+        <div class="container">
+            <h2 class="section-title">Pare de perder tempo e dinheiro. Comece hoje.</h2>
+            <p>Sua nova fase de profissionalismo e controle está a um clique de distância.</p>
+             <div class="cta-buttons">
+                <a href="https://pay.kiwify.com.br/QJz02Oq" class="btn btn-primary">➡️ Quero Adquirir a Servi.UP Agora</a>
+                <a href="https://wa.me/5554996333833?text=Ol%C3%A1!%20Tenho%20interesse%20na%20plataforma%20Servi.UP%20e%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas." class="btn btn-secondary">💬 Falar com Representante</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            <div class="faq-item">
+                <h4>É fácil de usar?</h4>
+                <p>Sim! A Servi.UP foi desenhada para ser extremamente intuitiva. Em poucos minutos você já estará criando seu primeiro orçamento profissional.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Posso usar a minha própria logo e cores?</h4>
+                <p>Com certeza! Esse é um dos nossos maiores diferenciais. A plataforma fica com a cara da sua marca, transmitindo muito mais profissionalismo.</p>
+            </div>
+             <div class="faq-item">
+                <h4>Funciona no meu celular?</h4>
+                <p>Sim, a plataforma é totalmente acessível pelo navegador do seu celular e possui o grande diferencial de funcionar também offline para consultas e criações.</p>
+            </div>
+             <div class="faq-item">
+                <h4>Os dados dos meus clientes estão seguros?</h4>
+                <p>Absolutamente. Usamos as melhores práticas de segurança para garantir que suas informações e as de seus clientes estejam sempre protegidas.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Servi.UP - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
